@@ -1,0 +1,75 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram id="tobe" name="TO-BE">
+    <mxGraphModel dx="2945" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b1" value="Магазин (Edge)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#333333;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="200" width="550" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="hw1" value="Фискальный принтер" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="b1" vertex="1">
+          <mxGeometry x="400" y="220" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw2" value="Банковский терминал" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="b1" vertex="1">
+          <mxGeometry x="400" y="310" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="Облако (Cloud Backend)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#333333;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="850" y="200" width="300" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="actor" value="Кассир [Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F75;strokeColor=#0050a1;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="310" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tablet" value="Web POS (Тонкий клиент) [Container: Tablet SPA/PWA] UI кассира, Offline-first кэш" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="250" y="310" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hal" value="Payment Gateway / HAL [Container: Local Edge Service] Слой абстракции оборудования" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#28a745;strokeColor=#1e7e34;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="250" y="460" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gw" value="Cloud API Gateway [Container]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="900" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ms1" value="Core Sales Service [Container: Microservice]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="900" y="330" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="db_cloud" value="Managed Cloud DB [Container: PaaS DB]" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="900" y="430" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sap" value="SAP ERP [Software System] HQ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1410" y="320" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="Абстракция: HAL предоставляет единый REST/WebSocket API для Web POS, самостоятельно разбираясь с драйверами зоопарка оборудования." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="210" y="640" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="note_link" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=1.5;strokeColor=#82b366;" parent="1" source="note1" target="hal" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="Использует" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="actor" target="tablet" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="REST/WSS (Синхронизация)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="tablet" target="gw" edge="1">
+          <mxGeometry x="-0.4754" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="REST/Local API (Команды железу)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="tablet" target="hal" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="USB / Serial" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="hal" target="hw1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="USB / Serial" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="hal" target="hw2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="Маршрутизация" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="gw" target="ms1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="Чтение/Запись" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="ms1" target="db_cloud" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="Синхронизация мастер-данных и продаж (API/MQ)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="ms1" target="sap" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
