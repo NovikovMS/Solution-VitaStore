@@ -1,0 +1,56 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram id="asis" name="AS-IS">
+    <mxGraphModel dx="2945" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b1" value="Магазин (Локальный контур)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="250" y="200" width="910" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="Локальная БД [Container: MS SQL/Postgres] Хранение номенклатуры и транзакций" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="b1" vertex="1">
+          <mxGeometry x="580" y="130" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hw1" value="Фискальный регистратор [Hardware]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="b1" vertex="1">
+          <mxGeometry x="50" y="350" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hw2" value="Банковский терминал (разные) [Hardware]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="b1" vertex="1">
+          <mxGeometry x="280" y="350" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="actor" value="Кассир [Person]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F75;strokeColor=#0050a1;" parent="1" vertex="1">
+          <mxGeometry x="-40" y="340" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pos" value="Толстый клиент (Касса) [Container: Desktop App] Монолитное Windows-приложение со встроенными драйверами" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;strokeColor=#0050a1;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="350" y="330" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sap" value="SAP ERP [Software System] Учет товаров и финансов (Центральный офис HQ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#ffffff;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1300" y="330" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="Комментарий: Интеграция с SAP происходит не в Real-time (REST API), а пакетно (FTP-рассылка ночью) или через отправку файлов почтой при онбординге." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="1030" y="80" width="350" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="note_link" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=1.5;strokeColor=#d6b656;" parent="1" source="note1" target="e4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="Использует для продаж" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="actor" target="pos" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Чтение/Запись данных (SQL)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="pos" target="db" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="Прямая интеграция (COM/USB)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="pos" target="hw1" edge="1">
+          <mxGeometry x="0.5745" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3_2" value="Жесткая связка, разные протоколы (ARCUS-2 и др.)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="pos" target="hw2" edge="1">
+          <mxGeometry x="0.6981" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="Ночной обмен прайс-листами (XML over FTP)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1.5;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=#ffffff;" parent="1" source="sap" target="db" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
