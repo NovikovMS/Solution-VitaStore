@@ -5,10 +5,10 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="pool" value="VitaStore: Процесс интеграции магазина" style="swimlane;childLayout=stackLayout;horizontal=0;startSize=30;horizontalStack=0;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="40" y="-70" width="1450" height="860" as="geometry" />
+          <mxGeometry x="40" y="-70" width="1550" height="860" as="geometry" />
         </mxCell>
         <mxCell id="lane_0" value="Магазин (Касса)" style="swimlane;horizontal=0;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;" parent="pool" vertex="1">
-          <mxGeometry x="30" width="1420" height="250" as="geometry" />
+          <mxGeometry x="30" width="1520" height="250" as="geometry" />
         </mxCell>
         <mxCell id="obj_raw" value="Сырой датасет" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f5f5f5;strokeColor=#666666;" parent="lane_0" vertex="1">
           <mxGeometry x="810" y="90" width="100" height="70" as="geometry" />
@@ -32,7 +32,7 @@
           <mxGeometry x="1250" y="90" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="lane_1" value="ИТ: AI-Сервис (SKU Mapping)" style="swimlane;horizontal=0;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="pool" vertex="1">
-          <mxGeometry x="30" y="250" width="1420" height="200" as="geometry" />
+          <mxGeometry x="30" y="250" width="1520" height="200" as="geometry" />
         </mxCell>
         <mxCell id="t2" value="Нормализация и ИИ-маппинг товаров" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" parent="lane_1" vertex="1">
           <mxGeometry x="350" y="30" width="140" height="70" as="geometry" />
@@ -50,13 +50,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="lane_2" value="Товаровед (HQ)" style="swimlane;horizontal=0;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;" parent="pool" vertex="1">
-          <mxGeometry x="30" y="450" width="1420" height="150" as="geometry" />
+          <mxGeometry x="30" y="450" width="1520" height="150" as="geometry" />
         </mxCell>
         <mxCell id="t3" value="Ручная верификация спорных позиций" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="lane_2" vertex="1">
           <mxGeometry x="630" y="50" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="lane_3" value="ИТ: SAP ERP (HQ)" style="swimlane;horizontal=0;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="pool" vertex="1">
-          <mxGeometry x="30" y="600" width="1420" height="260" as="geometry" />
+          <mxGeometry x="30" y="600" width="1520" height="260" as="geometry" />
         </mxCell>
         <mxCell id="obj_xml" value="XML пакет обновлений" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f5f5f5;strokeColor=#666666;" parent="lane_3" vertex="1">
           <mxGeometry x="1320" y="110" width="80" height="70" as="geometry" />
